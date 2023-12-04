@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     # useful lib
     'rest_framework',
     'rest_framework.authentication',
+    'rest_framework_swagger',
 
 ]
 
