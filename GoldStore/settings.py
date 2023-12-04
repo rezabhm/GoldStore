@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     # useful lib
     'rest_framework',
-    'rest_framework.authentication',
+    'rest_framework.authtoken',
     'rest_framework_swagger',
 
 ]
@@ -133,13 +133,10 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django Rest FrameWork
-
 REST_FRAMEWORK = {
-
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
     ],
-
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
