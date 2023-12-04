@@ -7,7 +7,7 @@ from .gold import GoldPrice
 class SaleGold(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    sale_date = models.DateTimeField(default=datetime.now())
+    sale_date = models.DateTimeField()
     money_amount = models.FloatField(default=0.0)
     gold_amount = models.FloatField(default=0.0)
     gold_price = models.ManyToManyField(GoldPrice)
@@ -19,7 +19,7 @@ class SaleGold(models.Model):
 class BuyGold(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    buy_date = models.DateTimeField(default=datetime.now())
+    buy_date = models.DateTimeField()
     money_amount = models.FloatField(default=0.0)
     gold_amount = models.FloatField(default=0.0)
     gold_price = models.ManyToManyField(GoldPrice)

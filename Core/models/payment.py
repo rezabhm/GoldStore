@@ -5,7 +5,7 @@ from datetime import datetime
 
 class PaymentTransactions(models.Model):
 
-    payment_date = models.DateTimeField(default=datetime.now())
+    payment_date = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     money_amount = models.FloatField(default=0.0)
 

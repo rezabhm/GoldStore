@@ -15,7 +15,7 @@ class UserInformation(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    joined_date = models.DateTimeField(default=datetime.now())
+    joined_date = models.DateTimeField()
     national_code = models.CharField(max_length=13)
 
     def __str__(self):
@@ -26,7 +26,7 @@ class SmsMSG(models.Model):
 
     user = models.ForeignKey(UserInformation, on_delete=models.CASCADE)
     message = models.TextField(default='')
-    sendDate = models.DateTimeField(default=datetime.now())
+    sendDate = models.DateTimeField()
 
     def __str__(self):
         return self.message

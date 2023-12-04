@@ -15,7 +15,7 @@ class Wallet(models.Model):
 
 class GoldPrice(models.Model):
 
-    Date = models.DateTimeField(default=datetime.now())
+    Date = models.DateTimeField()
     sale_price = models.FloatField(default=2500000)
     price_difference = models.FloatField(default=10000)
     total_gold_stock = models.FloatField(default=0.0)
@@ -23,4 +23,4 @@ class GoldPrice(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.Date
+        return str(self.pk)
