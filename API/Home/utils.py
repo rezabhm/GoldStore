@@ -24,7 +24,7 @@ def get_gold_stock_price():
 
     return {
 
-        'sale-price': gold_price_obj.sale_price,
-        'buy-price': gold_price_obj.sale_price + gold_price_obj.price_difference,
+        'sale_price': gold_price_obj.sale_price,
+        'buy_price': gold_price_obj.sale_price + gold_price_obj.price_difference,
 
     }, 200

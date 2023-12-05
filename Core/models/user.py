@@ -14,14 +14,14 @@ class UserInformation(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    joined_date = models.DateTimeField()
+    joined_date = models.DateTimeField(null=True)
     national_code = models.CharField(max_length=13)
 
     auth_temp_code = models.CharField(null=True, max_length=8)
     auth_temp_code_create_date = models.DateTimeField(null=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user.username)
 
 
 class SmsMSG(models.Model):
