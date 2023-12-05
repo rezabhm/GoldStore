@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title='Gold Store API')
@@ -22,9 +23,10 @@ schema_view = get_swagger_view(title='Gold Store API')
 urlpatterns = [
 
     path("admin/", admin.site.urls),
-    path("api/", schema_view),
+    path("", schema_view),
 
     # API
-    path("Home/v1/", include('API.Home.urls')),
+    path("Home/", include('API.Home.urls')),
+    path("Authentication/", include('API.Authentication.urls')),
 
 ]
