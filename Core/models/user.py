@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
 
 
 class UserInformation(models.Model):
@@ -18,13 +17,16 @@ class UserInformation(models.Model):
     joined_date = models.DateTimeField()
     national_code = models.CharField(max_length=13)
 
+    auth_temp_code = models.CharField(null=True, max_length=8)
+    auth_temp_code_create_date = models.DateTimeField(null=True)
+
     def __str__(self):
         return self.user
 
 
 class SmsMSG(models.Model):
 
-    user = models.ForeignKey(UserInformation, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField(default='')
     sendDate = models.DateTimeField()
 
