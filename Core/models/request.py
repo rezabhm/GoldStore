@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
 
 
 class MoneyGetRequest(models.Model):
@@ -11,7 +10,7 @@ class MoneyGetRequest(models.Model):
     request_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 
 class GoldGetRequest(models.Model):
@@ -22,4 +21,4 @@ class GoldGetRequest(models.Model):
     request_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)

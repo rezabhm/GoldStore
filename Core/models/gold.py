@@ -10,7 +10,7 @@ class Wallet(models.Model):
     gold_stock = models.FloatField(default=0.0)
 
     def __str__(self):
-        return self.user
+        return str(self.user.username)
 
 
 class GoldPrice(models.Model):
