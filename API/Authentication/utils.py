@@ -106,6 +106,7 @@ def prove_code(phone_number, code):
                 'response-fa': 'کد با موفقیت تایید شد ...',
                 'token': token_key,
                 'user_type': user_obj.user_type,
+                'signup_require': True if user_obj.national_code == '' else False
 
             }, 200
 
