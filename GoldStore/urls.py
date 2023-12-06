@@ -28,6 +28,7 @@ urlpatterns = [
     # API
     path("Home/", include('API.Home.urls')),
     path("Authentication/", include('API.Authentication.urls')),
-    path("UserDashboard/", include('API.UserDashboard.urls')),
+    path("UserDashboard-DeskPage/", include('API.UserDashboard_DeskPage.urls')),
+    path("UserDashboard-GetRequest/", include('API.UserDashboard_GetRequest.urls')),
 
 ]
