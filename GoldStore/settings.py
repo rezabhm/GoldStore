@@ -153,6 +153,5 @@ SWAGGER_SETTINGS = {
             'name': 'Authorization'
         }
     },
-    'PUBLIC': True,
 
 }
