@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="create admin table interface">
+    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="correct swagger_settings in setting.py">
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoldStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoldStore/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIB/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIB/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,15 +30,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2Z1Zlva7Ha1wYgqQSUhuaq1KGm6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/OnlineShop"
+    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/NewGold",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -51,11 +62,137 @@
       <option name="project" value="LOCAL" />
       <updated>1701599735760</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add DRF to project">
+      <option name="closed" value="true" />
+      <created>1701672338428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701672338428</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add swagger to project">
+      <option name="closed" value="true" />
+      <created>1701673042614</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701673042614</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add swagger to project">
+      <option name="closed" value="true" />
+      <created>1701676820788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701676820788</updated>
+    </task>
+    <task id="LOCAL-00005" summary="correct models date time field">
+      <option name="closed" value="true" />
+      <created>1701677064474</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701677064474</updated>
+    </task>
+    <task id="LOCAL-00006" summary="correct settings for authentication config">
+      <option name="closed" value="true" />
+      <created>1701679938198</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701679938198</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Create Home Page API">
+      <option name="closed" value="true" />
+      <created>1701680107683</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701680107683</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update swagger and drf setting">
+      <option name="closed" value="true" />
+      <created>1701765213736</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701765213736</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add authentication url">
+      <option name="closed" value="true" />
+      <created>1701765250482</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701765250482</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update Core models with add login temp code">
+      <option name="closed" value="true" />
+      <created>1701765298434</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701765298434</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add SMS service to project">
+      <option name="closed" value="true" />
+      <created>1701765316311</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701765316311</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Change Swagger Url">
+      <option name="closed" value="true" />
+      <created>1701767756432</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701767756433</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Create Signup/Login API">
+      <option name="closed" value="true" />
+      <created>1701771235082</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701771235082</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update Project">
+      <option name="closed" value="true" />
+      <created>1701771253697</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701771253697</updated>
+    </task>
+    <task id="LOCAL-00015" summary="correct swagger_settings in setting.py">
+      <option name="closed" value="true" />
+      <created>1701850410223</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701850410223</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="create admin table interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="create admin table interface" />
+    <MESSAGE value="Add DRF to project" />
+    <MESSAGE value="add swagger to project" />
+    <MESSAGE value="correct models date time field" />
+    <MESSAGE value="correct settings for authentication config" />
+    <MESSAGE value="Create Home Page API" />
+    <MESSAGE value="Update swagger and drf setting" />
+    <MESSAGE value="add authentication url" />
+    <MESSAGE value="update Core models with add login temp code" />
+    <MESSAGE value="add SMS service to project" />
+    <MESSAGE value="Change Swagger Url" />
+    <MESSAGE value="Create Signup/Login API" />
+    <MESSAGE value="Update Project" />
+    <MESSAGE value="correct swagger_settings in setting.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct swagger_settings in setting.py" />
   </component>
 </project>

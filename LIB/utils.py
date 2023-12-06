@@ -16,4 +16,4 @@ def get_user_from_token(token_key):
 
     except:
 
-        return False, _, _
+        return False, None, None
