@@ -1,5 +1,5 @@
-from API.UserDashboard.serializer import WalletDataSerializer
-from LIB.utils import get_user_from_token
+from API.UserDashboard_DeskPage.serializer import WalletDataSerializer
+from LIB.utils import get_user_from_token, check_wallet
 from Core.models import gold
 
 
@@ -11,22 +11,7 @@ def wallet_data(token_key):
 
     if status:
 
-        try:
-
-            wallet_obj = gold.Wallet.objects.get(user=user)
-
-        except:
-
-            wallet_obj = gold.Wallet(
-
-                user=user,
-                gold_stock=0.0,
-                money_stock=0.0
-
-            )
-
-            wallet_obj.save()
-
+        wallet_obj = check_wallet(user)
         wallet_serializer = WalletDataSerializer(data=[wallet_obj], many=True)
         wallet_serializer.is_valid()
 

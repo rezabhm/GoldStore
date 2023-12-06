@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
+from Core.models import gold
 from Core.models.user import UserInformation
 
 
@@ -17,3 +18,24 @@ def get_user_from_token(token_key):
     except:
 
         return False, None, None
+
+
+def check_wallet(user):
+
+    try:
+
+        wallet_obj = gold.Wallet.objects.get(user=user)
+
+    except:
+
+        wallet_obj = gold.Wallet(
+
+            user=user,
+            gold_stock=0.0,
+            money_stock=0.0
+
+        )
+
+        wallet_obj.save()
+
+    return wallet_obj

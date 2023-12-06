@@ -3,7 +3,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 
-from API.UserDashboard.utils import wallet_data
+from API.UserDashboard_DeskPage.utils import wallet_data
 
 
 class WalletData(APIView):
