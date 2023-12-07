@@ -13,7 +13,7 @@ class SaleGold(models.Model):
     gold_price = models.ManyToManyField(GoldPrice)
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 
 class BuyGold(models.Model):
@@ -31,6 +31,6 @@ class BuyGold(models.Model):
        )
 
     def __str__(self):
-        return self.pk
+        return str(self.pk)
 
 
