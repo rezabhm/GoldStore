@@ -11,6 +11,7 @@ class SaleGold(models.Model):
     money_amount = models.FloatField(default=0.0)
     gold_amount = models.FloatField(default=0.0)
     gold_price = models.ManyToManyField(GoldPrice)
+    request_status = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.pk)
@@ -23,12 +24,7 @@ class BuyGold(models.Model):
     money_amount = models.FloatField(default=0.0)
     gold_amount = models.FloatField(default=0.0)
     gold_price = models.ManyToManyField(GoldPrice)
-    buying_type = models.CharField(max_length=15, default='Add to Wallet', choices=(
-
-                ('Add to Wallet', 'Add to Wallet'),
-                ('get directly', 'get directly'),
-            )
-       )
+    request_status = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.pk)
