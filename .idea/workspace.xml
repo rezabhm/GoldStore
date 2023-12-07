@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="correct user dashboard desk_page">
-      <change afterPath="$PROJECT_DIR$/API/UserDashboard_GetRequest/post_param.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/UserDashboard_GetRequest/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/UserDashboard_GetRequest/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/UserDashboard_GetRequest/views.py" afterDir="false" />
+    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="correct authentication api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/UserDashboard/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/UserDashboard_DeskPage/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/UserDashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/UserDashboard_DeskPage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/UserDashboard/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/UserDashboard_DeskPage/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/UserDashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/UserDashboard_DeskPage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoldStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoldStore/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LIB/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIB/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +34,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/NewGold",
+    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/GoldStore",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
@@ -210,7 +199,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701868329456</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Create Get Requests api for money and gold">
+      <option name="closed" value="true" />
+      <created>1701868355463</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701868355463</updated>
+    </task>
+    <task id="LOCAL-00021" summary="correct authentication api">
+      <option name="closed" value="true" />
+      <created>1701871049873</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701871049873</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -233,6 +238,8 @@
     <MESSAGE value="correct payment models" />
     <MESSAGE value="correct models" />
     <MESSAGE value="correct user dashboard desk_page" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct user dashboard desk_page" />
+    <MESSAGE value="Create Get Requests api for money and gold" />
+    <MESSAGE value="correct authentication api" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct authentication api" />
   </component>
 </project>
