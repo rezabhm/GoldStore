@@ -1,10 +1,12 @@
 import json
 
 from django.http import JsonResponse
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from . import utils
+from .post_param import Signup, ProveCode
 
 
 class SendCode(APIView):
@@ -25,7 +27,7 @@ class SendCode(APIView):
         return JsonResponse(data, status=status)
 
 
-class ProveCode(APIView):
+class ProveCode(GenericAPIView):
 
     """
 
@@ -35,6 +37,7 @@ class ProveCode(APIView):
 
     permission_classes = (AllowAny,)
     allowed_methods = ('POST',)
+    serializer_class = ProveCode
 
     def post(self, request):
 
@@ -44,7 +47,7 @@ class ProveCode(APIView):
         return JsonResponse(data, status=status)
 
 
-class SignUp(APIView):
+class SignUp(GenericAPIView):
     """
 
         sign-up user with users information / ثبت نام کاربر
@@ -54,6 +57,7 @@ class SignUp(APIView):
     permission_classes = [IsAuthenticated]
     allowed_methods = ('POST',)
     parser_classes = [TokenAuthentication]
+    serializer_class = Signup
 
     def post(self, request):
 
