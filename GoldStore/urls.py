@@ -31,5 +31,6 @@ urlpatterns = [
     path("UserDashboard-DeskPage/", include('API.UserDashboard_DeskPage.urls')),
     path("UserDashboard-GetRequest/", include('API.UserDashboard_GetRequest.urls')),
     path("UserDashboard-GoldBuySale/", include('API.UserDashboard_GoldBuySale.urls')),
+    path("UserDashboard-UserReporting/", include('API.UserDashboard_UserReporting.urls')),
 
 ]

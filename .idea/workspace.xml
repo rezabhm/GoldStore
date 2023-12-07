@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="correct authentication api">
+    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="correct payment models">
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard_UserReporting/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard_UserReporting/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/UserDashboard_UserReporting/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoldStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoldStore/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +38,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/GoldStore",
+    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/NewGold",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
@@ -215,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701871049873</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="correct payment models">
+      <option name="closed" value="true" />
+      <created>1701943006954</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701943006954</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,11 +247,11 @@
     <MESSAGE value="Update Project" />
     <MESSAGE value="correct swagger_settings in setting.py" />
     <MESSAGE value="Create User Dashboard api" />
-    <MESSAGE value="correct payment models" />
     <MESSAGE value="correct models" />
     <MESSAGE value="correct user dashboard desk_page" />
     <MESSAGE value="Create Get Requests api for money and gold" />
     <MESSAGE value="correct authentication api" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct authentication api" />
+    <MESSAGE value="correct payment models" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct payment models" />
   </component>
 </project>
