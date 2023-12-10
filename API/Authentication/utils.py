@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 from LIB.utils import get_user_from_token
-from SmsService.SMS import *
+from LIB.SmsService.SMS import *
 from Core.models import user as user_model
 from rest_framework.authtoken.models import Token
 
