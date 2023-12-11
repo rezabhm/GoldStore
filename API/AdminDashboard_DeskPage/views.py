@@ -32,7 +32,7 @@ class UserChangeGoldAmount(GenericAPIView):
 
     """
 
-        change users wallets gold amount / اطلاعات مقدار کیف طلا را میدهد
+        change users wallets gold amount / مقدار موجودی طلا در کیف پول را تغییر میدهد
 
     """
 
@@ -53,7 +53,7 @@ class UserChangeMoneyAmount(GenericAPIView):
 
     """
 
-        change users wallets money amount / اطلاعات مقدار کیف پول را میدهد
+        change users wallets money amount / مقدار موجودی پول در کیف پول را تغییر میدهد
 
     """
 
