@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from Core.models.request import MoneyGetRequest
+from Core.models.request import MoneyGetRequest, GoldGetRequest
 
 
 def add_user_inf(data):
@@ -22,7 +22,7 @@ def prove_money_get_request(get_req_id):
 
     try:
 
-        get_request_obj = MoneyGetRequest.objects.get(pk=get_request_id)
+        get_request_obj = MoneyGetRequest.objects.get(pk=get_req_id)
         get_request_obj.request_status = True
         get_request_obj.save()
 
@@ -40,6 +40,29 @@ def prove_money_get_request(get_req_id):
             'response-en': 'wrong id',
             'response-fa': 'آیدی ارسال شده اشتباه میباشد'
 
-        }
+        }, 400
 
 
+def prove_gold_get_request(get_req_id):
+
+    try:
+
+        get_request_obj = GoldGetRequest.objects.get(pk=get_req_id)
+        get_request_obj.request_status = True
+        get_request_obj.save()
+
+        return {
+
+            'response-en': 'successfully ...',
+            'response-fa':'درخواست موفقیت آمیز بود'
+
+        }, 200
+
+    except:
+
+        return {
+
+            'response-en': 'wrong id',
+            'response-fa': 'آیدی ارسال شده اشتباه میباشد'
+
+        }, 400
