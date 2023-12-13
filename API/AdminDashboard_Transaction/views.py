@@ -26,6 +26,10 @@ class TransactionList(APIView):
         transaction_list_serializer = TransactionSerializer(data=transaction_list, many=True)
         transaction_list_serializer.is_valid()
 
-        data = add_user_inf(transaction_list.data)
+        data = add_user_inf(transaction_list_serializer.data)
 
-        return JsonResponse(data=data, status=200)
+        return JsonResponse(data={
+
+            'transaction_list': data
+
+        }, status=200)

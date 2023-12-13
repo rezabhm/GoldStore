@@ -10,5 +10,6 @@ def add_user_inf(data):
         dt['first_name'] = user_obj.first_name
         dt['last_name'] = user_obj.last_name
         dt['phone_number'] = user_obj.username
+        dt['payment_date'] = ' '.join(dt['payment_date'].replace('T', ' ').split(' '))
 
     return data

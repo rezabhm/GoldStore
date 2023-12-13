@@ -13,7 +13,7 @@ def add_user_inf(data):
         dt['last_name'] = user_obj.last_name
         dt['phone_number'] = user_obj.username
 
-        dt['request_date'] = dt['request_date'].replace('T', ' ').split(' ')
+        dt['request_date'] = ' '.join(dt['request_date'].replace('T', ' ').split(' '))
 
     return data
 
