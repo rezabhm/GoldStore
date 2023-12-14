@@ -61,8 +61,8 @@ def send_code(phone_number):
 
         return {
 
-            'response-en': 'successfully code sent',
-            'response-fa': 'کد با موفقیت ارسال شد',
+            'responseEN': 'successfully code sent',
+            'responseFA': 'کد با موفقیت ارسال شد',
 
         }, 200
 
@@ -70,8 +70,8 @@ def send_code(phone_number):
 
         return {
 
-            'response-en': 'code cant send',
-            'response-fa': 'کد نمیتواند ارسال شود',
+            'responseEN': 'code cant send',
+            'responseFA': 'کد نمیتواند ارسال شود',
 
         }, 400
 
@@ -86,8 +86,8 @@ def prove_code(phone_number, code):
 
         return {
 
-            'response-en': 'user not found ',
-            'response-fa': 'کاربری با این شماره موبایل یافت نشد'
+            'responseEN': 'user not found ',
+            'responseFA': 'کاربری با این شماره موبایل یافت نشد'
 
         }, 404
 
@@ -102,8 +102,8 @@ def prove_code(phone_number, code):
 
             return {
 
-                'response-en': 'successfully code proved ...',
-                'response-fa': 'کد با موفقیت تایید شد ...',
+                'responseEN': 'successfully code proved ...',
+                'responseFA': 'کد با موفقیت تایید شد ...',
                 'token': token_key,
                 'user_type': user_obj.user_type,
                 'signup_require': True if user_obj.national_code == '' else False
@@ -114,8 +114,8 @@ def prove_code(phone_number, code):
 
             return {
 
-                'response-en': 'wrong code',
-                'response-fa': 'کد وارد شده اشتباه است ...',
+                'responseEN': 'wrong code',
+                'responseFA': 'کد وارد شده اشتباه است ...',
 
             }, 400
 
@@ -123,8 +123,8 @@ def prove_code(phone_number, code):
 
         return {
 
-            'response-en': 'code out of date',
-            'response-fa': 'خارج از محدوده زمانی ...',
+            'responseEN': 'code out of date',
+            'responseFA': 'خارج از محدوده زمانی ...',
 
         }, 400
 
@@ -148,8 +148,8 @@ def signup_user(token_key, data):
 
         return {
 
-            'response-en': 'successfully user update ...',
-            'response-fa': 'اطلاعات کاربر با موفقیت ثبت شد'
+            'responseEN': 'successfully user update ...',
+            'responseFA': 'اطلاعات کاربر با موفقیت ثبت شد'
 
         }, 200
 
@@ -157,8 +157,8 @@ def signup_user(token_key, data):
 
         return {
 
-            'response-en': 'user not found ...',
-            'response-fa': 'کاربر یافت نشد ...'
+            'responseEN': 'user not found ...',
+            'responseFA': 'کاربر یافت نشد ...'
 
         }, 404
 

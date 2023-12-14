@@ -17,8 +17,8 @@ def get_gold_stock_price():
 
         return {
 
-            "response-fa": 'قیمت ها توسط ادمین ثبت نشده اند',
-            "response-en": 'admin didn\'t add gold price ',
+            "responseFA": 'قیمت ها توسط ادمین ثبت نشده اند',
+            "responseEN": 'admin didn\'t add gold price ',
 
         }, 404
 

@@ -53,8 +53,8 @@ def user_change_gold_amount(data):
 
         return {
 
-            'response-en': 'user with this phone number didn\'t found',
-            'response-fa': 'کاربر با این شماره تلفن یافت نشد'
+            'responseEN': 'user with this phone number didn\'t found',
+            'responseFA': 'کاربر با این شماره تلفن یافت نشد'
 
         }, 404
 
@@ -77,8 +77,8 @@ def user_change_gold_amount(data):
 
     return {
 
-        'response-en': 'successfully change ...',
-        'response-fa': 'تغییرات با موفقیت اعمال شد',
+        'responseEN': 'successfully change ...',
+        'responseFA': 'تغییرات با موفقیت اعمال شد',
 
     }, 200
 
@@ -93,8 +93,8 @@ def user_change_money_amount(data):
 
         return {
 
-            'response-en': 'user with this phone number didn\'t found',
-            'response-fa': 'کاربر با این شماره تلفن یافت نشد'
+            'responseEN': 'user with this phone number didn\'t found',
+            'responseFA': 'کاربر با این شماره تلفن یافت نشد'
 
         }, 404
 
@@ -117,7 +117,7 @@ def user_change_money_amount(data):
 
     return {
 
-        'response-en': 'successfully change ...',
-        'response-fa': 'تغییرات با موفقیت اعمال شد',
+        'responseEN': 'successfully change ...',
+        'responseFA': 'تغییرات با موفقیت اعمال شد',
 
     }, 200

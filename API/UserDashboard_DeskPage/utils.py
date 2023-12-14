@@ -26,7 +26,7 @@ def wallet_data(token_key):
 
         return {
 
-            'response-en': 'wrong token',
-            'response-fa': 'توکن معتبر نمیباشد'
+            'responseEN': 'wrong token',
+            'responseFA': 'توکن معتبر نمیباشد'
 
         }, 400

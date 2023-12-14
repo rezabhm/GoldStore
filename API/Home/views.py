@@ -40,7 +40,7 @@ class ValidateToken(APIView):
 
         return JsonResponse({
 
-            'response-en': 'token is valid',
-            'response-fa': 'توکن معتبر میباشد',
+            'responseEN': 'token is valid',
+            'responseFA': 'توکن معتبر میباشد',
 
         }, status=202)

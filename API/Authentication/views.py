@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from . import utils
-from .post_param import Signup, ProveCode
+from .post_param import Signup, ProveCode as prove_code_post_param
 
 
 class SendCode(APIView):
@@ -37,7 +37,7 @@ class ProveCode(GenericAPIView):
 
     permission_classes = (AllowAny,)
     allowed_methods = ('POST',)
-    serializer_class = ProveCode
+    serializer_class = prove_code_post_param
 
     def post(self, request):
 

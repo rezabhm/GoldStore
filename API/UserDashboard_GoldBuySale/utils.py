@@ -41,8 +41,8 @@ def sale_gold(token_key, gold_amount):
 
                 return {
 
-                    'response-en': 'successfully received , after admin approved money will add to your wallet',
-                    'response-fa': 'درخواست شما با موفقیت دیافت شد .'
+                    'responseEN': 'successfully received , after admin approved money will add to your wallet',
+                    'responseFA': 'درخواست شما با موفقیت دیافت شد .'
                                    ' به محض تایید این درخواست توسط ادمین مبلغ فروش طلا به کیف پول شما اضافه میشود'
 
                 }, 200
@@ -51,23 +51,23 @@ def sale_gold(token_key, gold_amount):
 
                 return {
 
-                    'response-en': 'failed . stock closed ',
-                    'response-fa': 'بازار خرید و فروش بسته میباشد'
+                    'responseEN': 'failed . stock closed ',
+                    'responseFA': 'بازار خرید و فروش بسته میباشد'
                 }, 400
         else:
 
             return {
 
-                'response-en': 'failed . you gold amount are out of range',
-                'response-fa': 'مقدار طلای درخواستی شما بیشتر از مقدار طلای موجود در کیف پول شماست'
+                'responseEN': 'failed . you gold amount are out of range',
+                'responseFA': 'مقدار طلای درخواستی شما بیشتر از مقدار طلای موجود در کیف پول شماست'
             }, 400
 
     else:
 
         return {
 
-            'response-en': 'user not found',
-            'response-fa': 'کاربر یافت نشد'
+            'responseEN': 'user not found',
+            'responseFA': 'کاربر یافت نشد'
         }, 400
 
 
@@ -91,6 +91,7 @@ def buy_gold(token_key, gold_amount):
                 buy_date=timezone.now(),
                 money_amount=gold_price,
                 gold_amount=gold_amount,
+                request_status=True,
 
             )
 
@@ -100,10 +101,17 @@ def buy_gold(token_key, gold_amount):
 
             buy_gold_obj.save()
 
+            wallet_obj = check_wallet(user)
+            wallet_obj.gold_stock = wallet_obj.gold_stock + gold_amount
+            wallet_obj.save()
+
+            gold_price_obj.total_gold_stock = gold_price_obj.total_gold_stock - gold_amount
+            gold_price_obj.save()
+
             return {
 
-                'response-en': 'successfully received , after admin approved gold will add to your wallet',
-                'response-fa': 'درخواست شما با موفقیت دیافت شد .'
+                'responseEN': 'successfully received , after admin approved gold will add to your wallet',
+                'responseFA': 'درخواست شما با موفقیت دیافت شد .'
                                ' به محض تایید این درخواست توسط ادمین طلای درخواستی به کیف پول شما اضافه میشود'
 
             }, 200
@@ -112,14 +120,14 @@ def buy_gold(token_key, gold_amount):
 
             return {
 
-                'response-en': 'your requests gold amount is out of range',
-                'response-fa': 'طلای درخواستی شما بیش تر از مقدار موجود طلا در انبار است'
+                'responseEN': 'your requests gold amount is out of range',
+                'responseFA': 'طلای درخواستی شما بیش تر از مقدار موجود طلا در انبار است'
             }, 400
 
     else:
 
         return {
 
-            'response-en': 'stock are closed',
-            'response-fa': 'بازار خرید و فروش بسته می باشد'
+            'responseEN': 'stock are closed',
+            'responseFA': 'بازار خرید و فروش بسته می باشد'
         }, 400

@@ -30,9 +30,9 @@ def get_request_money(token_key, money_amount):
 
             return {
 
-                'response-en': f'your request\'s money amount are higher than your wallet\'s money amount.'
+                'responseEN': f'your request\'s money amount are higher than your wallet\'s money amount.'
                                f'  your wallet: {wallet_obj.money_stock}',
-                'response-fa': 'میزان پول درخواستی بیشتر از مقدار موجودی کیف پول شماست . مقدار موجودی کیف پول : '
+                'responseFA': 'میزان پول درخواستی بیشتر از مقدار موجودی کیف پول شماست . مقدار موجودی کیف پول : '
                                f'{wallet_obj.money_stock}',
 
             }, 400
@@ -41,8 +41,8 @@ def get_request_money(token_key, money_amount):
 
         return {
 
-            'response-en': 'user didn\'t found',
-            'response-fa': 'کاربر یافت نشد',
+            'responseEN': 'user didn\'t found',
+            'responseFA': 'کاربر یافت نشد',
 
         }, 400
 
@@ -72,9 +72,9 @@ def get_request_gold(token_key, gold_amount):
 
             return {
 
-                'response-en': f'your request\'s gold amount are higher than your wallet\'s gold amount.'
+                'responseEN': f'your request\'s gold amount are higher than your wallet\'s gold amount.'
                                f'  your wallet: {wallet_obj.gold_stock}',
-                'response-fa': 'میزان طلای درخواستی بیشتر از مقدار موجودی کیف پول شماست . مقدار موجودی کیف شما : '
+                'responseFA': 'میزان طلای درخواستی بیشتر از مقدار موجودی کیف پول شماست . مقدار موجودی کیف شما : '
                                f'{wallet_obj.gold_stock}',
 
             }, 400
@@ -83,7 +83,7 @@ def get_request_gold(token_key, gold_amount):
 
         return {
 
-            'response-en': 'user didn\'t found',
-            'response-fa': 'کاربر یافت نشد',
+            'responseEN': 'user didn\'t found',
+            'responseFA': 'کاربر یافت نشد',
 
         }, 400

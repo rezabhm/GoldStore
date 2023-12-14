@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 
 from Core.models.request import MoneyGetRequest, GoldGetRequest
+from LIB.utils import check_wallet
 
 
 def add_user_inf(data):
@@ -26,10 +27,14 @@ def prove_money_get_request(get_req_id):
         get_request_obj.request_status = True
         get_request_obj.save()
 
+        wallet_obj = check_wallet(get_request_obj.user)
+        wallet_obj.money_stock = wallet_obj.money_stock - get_request_obj.money_amount
+        wallet_obj.save()
+
         return {
 
-            'response-en': 'successfully ...',
-            'response-fa':'درخواست موفقیت آمیز بود'
+            'responseEN': 'successfully ...',
+            'responseFA': 'درخواست موفقیت آمیز بود'
 
         }, 200
 
@@ -37,8 +42,8 @@ def prove_money_get_request(get_req_id):
 
         return {
 
-            'response-en': 'wrong id',
-            'response-fa': 'آیدی ارسال شده اشتباه میباشد'
+            'responseEN': 'wrong id',
+            'responseFA': 'آیدی ارسال شده اشتباه میباشد'
 
         }, 400
 
@@ -51,10 +56,14 @@ def prove_gold_get_request(get_req_id):
         get_request_obj.request_status = True
         get_request_obj.save()
 
+        wallet_obj = check_wallet(get_request_obj.user)
+        wallet_obj.gold_stock = wallet_obj.gold_stock - get_request_obj.gold_amount
+        wallet_obj.save()
+
         return {
 
-            'response-en': 'successfully ...',
-            'response-fa':'درخواست موفقیت آمیز بود'
+            'responseEN': 'successfully ...',
+            'responseFA': 'درخواست موفقیت آمیز بود'
 
         }, 200
 
@@ -62,7 +71,7 @@ def prove_gold_get_request(get_req_id):
 
         return {
 
-            'response-en': 'wrong id',
-            'response-fa': 'آیدی ارسال شده اشتباه میباشد'
+            'responseEN': 'wrong id',
+            'responseFA': 'آیدی ارسال شده اشتباه میباشد'
 
         }, 400
