@@ -38,5 +38,6 @@ urlpatterns = [
     path("AdminDashboard-GetRequest/", include('API.AdminDashboard_GetRequest.urls')),
     path("AdminDashboard-Transaction/", include('API.AdminDashboard_Transaction.urls')),
     path("AdminDashboard-Setting/", include('API.AdminDashboard_Setting.urls')),
+    path("AdminDashboard-BuySale/", include('API.AdminDashboard_BuySale.urls')),
 
 ]
