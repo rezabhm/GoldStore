@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="create admin-dashboard money get request" />
+    <list default="true" id="b84150e7-b2ad-43c4-9790-044a4889ec15" name="Changes" comment="create admin-dashboard money get request">
+      <change afterPath="$PROJECT_DIR$/API/AdminDashboard_Setting/post_param.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/AdminDashboard_Setting/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/AdminDashboard_Setting/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/AdminDashboard_Setting/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/AdminDashboard_Setting/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/AdminDashboard_DeskPage/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/AdminDashboard_DeskPage/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoldStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/GoldStore/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +42,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/GoldStore",
+    "last_opened_file_path": "/media/reza/14DBE3BC09E8A0B4/SoftWare/BackEnd/Django/NewGold",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
