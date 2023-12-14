@@ -100,7 +100,7 @@ class ChangeStoreGoldAmount(GenericAPIView):
 
     def post(self, request):
 
-        req_data = json.load(request.body)
+        req_data = json.loads(request.body)
         data, status = change_store_gold_amount(gold_amount=req_data['gold_amount'])
 
         return JsonResponse(data=data, status=status)
@@ -121,7 +121,7 @@ class PriceDifference(GenericAPIView):
 
     def post(self, request):
 
-        req_data = json.load(request.body)
+        req_data = json.loads(request.body)
         data, status = change_price_difference(price_difference=req_data['price_difference'])
 
         return JsonResponse(data=data, status=status)
