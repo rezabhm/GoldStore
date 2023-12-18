@@ -80,11 +80,11 @@ def buy_gold(token_key, gold_amount):
 
     if len(gold_price_obj) > 0:
 
-        gold_price_obj = gold_price_obj[0]
+        gold_price_obj = gold_price_obj[len(gold_price_obj)-1]
 
         if gold_amount <= gold_price_obj.total_gold_stock:
 
-            gold_price = gold_amount * gold_price_obj.sale_price + gold_price_obj.price_difference
+            gold_price = gold_amount * (gold_price_obj.sale_price + gold_price_obj.price_difference)
 
             if gold_price <= wallet_obj.money_stock:
 
