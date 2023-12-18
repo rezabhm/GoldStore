@@ -9,7 +9,7 @@ def wallet_data(token_key):
 
     if status:
         try:
-            name = user.first_name + user.last_name
+            name = f'{user.first_name}  {user.last_name}'
         except:
             name = ''
 
