@@ -25,7 +25,7 @@ class GetRequestMoney(GenericAPIView):
     def post(self, request):
 
         req_body = json.loads(request.body)
-        data, status = get_request_money(request.auth, float(req_body['money_amount']))
+        data, status = get_request_money(request.auth, float(req_body['money_amount'].replace(',','')))
 
         return JsonResponse(data, status=status)
 

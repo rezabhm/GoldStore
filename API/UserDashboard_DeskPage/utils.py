@@ -8,6 +8,10 @@ def wallet_data(token_key):
     status, user, user_inf = get_user_from_token(token_key)
 
     if status:
+        try:
+            name = user.first_name + user.last_name
+        except:
+            name = ''
 
         wallet_obj = check_wallet(user)
         wallet_serializer = WalletDataSerializer(data=[wallet_obj], many=True)
@@ -17,6 +21,7 @@ def wallet_data(token_key):
 
             'wallet_gold_data': round(wallet_serializer.data[0]['gold_stock'], 3),
             'wallet_money_data': wallet_serializer.data[0]['money_stock'],
+            'name': name
 
         }, 200
 

@@ -1,3 +1,4 @@
+import jdatetime
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
@@ -43,5 +44,12 @@ def check_wallet(user):
 
 def cvt_date(x):
 
-    return ' '.join(':'.join('T'.join(x.replace('T', ' ').split(' ')).split(':')[:2]).replace('T', ' ').split(
+    time = ' '.join(':'.join('T'.join(x.replace('T', ' ').split(' ')).split(':')[:2]).replace('T', ' ').split(
         ' ')).replace('-', '/')
+
+    time_2 = time.split(' ')
+    date = time_2[0].split('/')
+
+    date = jdatetime.date.fromgregorian(year=int(date[0]), month=int(date[1]), day=int(date[2]))
+
+    return f'{date.year}/{date.month}/{date.day} {time_2[1]}'
