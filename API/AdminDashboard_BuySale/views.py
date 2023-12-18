@@ -9,7 +9,7 @@ from rest_framework.views import APIView
 from API.AdminDashboard_BuySale.post_param import ProveSaleReqeustParam
 from API.AdminDashboard_BuySale.serializer import SaleGoldSerializer, BuyGoldSerializer
 from API.AdminDashboard_BuySale.utils import add_inf, add_inf_buy, prove_sale_request
-from Core.models.stock import SaleGold
+from Core.models.stock import SaleGold, BuyGold
 
 
 class SaleList(APIView):
@@ -31,7 +31,7 @@ class SaleList(APIView):
         all_sale_gold_serializer.is_valid()
         all_sale_gold_list = add_inf(all_sale_gold_serializer.data)
 
-        unacceptable_sale_gold_list = SaleGold.objects.all()
+        unacceptable_sale_gold_list = SaleGold.objects.filter(request_status=False)
         unacceptable_sale_gold_serializer = SaleGoldSerializer(data=unacceptable_sale_gold_list, many=True)
         unacceptable_sale_gold_serializer.is_valid()
         unacceptable_sale_gold_list = add_inf(unacceptable_sale_gold_serializer.data)
@@ -59,7 +59,7 @@ class BuyList(APIView):
 
     def get(self, request):
 
-        all_buy_gold_list = SaleGold.objects.all()
+        all_buy_gold_list = BuyGold.objects.all()
         all_buy_gold_serializer = BuyGoldSerializer(data=all_buy_gold_list, many=True)
         all_buy_gold_serializer.is_valid()
         all_buy_gold_list = add_inf_buy(all_buy_gold_serializer.data)
@@ -88,6 +88,6 @@ class ProveSaleRequest(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = prove_sale_request(req_data['sale_request_id'])
+        data, status = prove_sale_request(req_data['sale_request_id'], req_data['prove_status'])
 
         return JsonResponse(data=data, status=status)

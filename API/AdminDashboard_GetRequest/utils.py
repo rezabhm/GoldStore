@@ -15,28 +15,46 @@ def add_user_inf(data):
         dt['phone_number'] = user_obj.username
 
         dt['request_date'] = ' '.join(dt['request_date'].replace('T', ' ').split(' '))
+        # dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
 
     return data
 
 
-def prove_money_get_request(get_req_id):
+def prove_money_get_request(get_req_id, request_type):
 
     try:
 
         get_request_obj = MoneyGetRequest.objects.get(pk=get_req_id)
-        get_request_obj.request_status = True
-        get_request_obj.save()
-
         wallet_obj = check_wallet(get_request_obj.user)
-        wallet_obj.money_stock = wallet_obj.money_stock - get_request_obj.money_amount
-        wallet_obj.save()
 
-        return {
+        if get_request_obj.money_amount <= wallet_obj.money_stock:
 
-            'responseEN': 'successfully ...',
-            'responseFA': 'درخواست موفقیت آمیز بود'
+            get_request_obj.request_status = request_type
+            get_request_obj.save()
 
-        }, 200
+            if request_type == 'تایید درخواست':
+
+                wallet_obj.money_stock = wallet_obj.money_stock - get_request_obj.money_amount
+                wallet_obj.save()
+
+            return {
+
+                'responseEN': 'successfully ...',
+                'responseFA': 'درخواست موفقیت آمیز بود'
+
+            }, 200
+
+        else:
+
+            get_request_obj.request_status = 'رد درخواست'
+            get_request_obj.save()
+
+            return {
+
+                'responseEN': 'users requests money amount are higher than users wallet money amount',
+                'responseFA': 'میزان پول درخواستی توسط مشتری بیشتر از مقدار کیف پول مشتری است'
+
+            }, 400
 
     except:
 
@@ -48,24 +66,42 @@ def prove_money_get_request(get_req_id):
         }, 400
 
 
-def prove_gold_get_request(get_req_id):
+def prove_gold_get_request(get_req_id, request_type):
 
     try:
 
         get_request_obj = GoldGetRequest.objects.get(pk=get_req_id)
-        get_request_obj.request_status = True
-        get_request_obj.save()
-
         wallet_obj = check_wallet(get_request_obj.user)
-        wallet_obj.gold_stock = wallet_obj.gold_stock - get_request_obj.gold_amount
-        wallet_obj.save()
 
-        return {
+        if get_request_obj.gold_amount <= wallet_obj.gold_stock:
 
-            'responseEN': 'successfully ...',
-            'responseFA': 'درخواست موفقیت آمیز بود'
+            get_request_obj.request_status = request_type
+            get_request_obj.save()
 
-        }, 200
+            if request_type == 'تایید درخواست':
+
+                wallet_obj.gold_stock = wallet_obj.gold_stock - get_request_obj.gold_amount
+                wallet_obj.save()
+
+            return {
+
+                'responseEN': 'successfully ...',
+                'responseFA': 'درخواست موفقیت آمیز بود'
+
+            }, 200
+
+        else:
+
+            get_request_obj.request_status = 'رد درخواست'
+            get_request_obj.save()
+
+            return {
+
+                'responseEN': 'users requests money amount are higher than users wallet money amount',
+                'responseFA': 'میزان طلای درخواستی توسط مشتری بیشتر از مقدار طلای موجود در کیف پول مشتری است'
+
+            }, 400
+
 
     except:
 

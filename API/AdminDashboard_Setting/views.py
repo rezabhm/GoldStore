@@ -61,7 +61,7 @@ class ChangePrice(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = change_gold_price(req_data['gold_price'])
+        data, status = change_gold_price(float(req_data['gold_price'].replace(',', '')))
 
         return JsonResponse(data=data, status=status)
 

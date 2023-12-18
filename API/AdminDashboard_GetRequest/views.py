@@ -60,7 +60,7 @@ class ProveMoneyGetRequest(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = prove_money_get_request(get_req_id=req_data['get_request_id'])
+        data, status = prove_money_get_request(get_req_id=req_data['get_request_id'], request_type=['request_type'])
 
         return JsonResponse(data=data, status=status)
 
@@ -111,6 +111,6 @@ class ProveGoldGetRequest(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = prove_gold_get_request(get_req_id=req_data['get_request_id'])
+        data, status = prove_gold_get_request(get_req_id=req_data['get_request_id'], request_type=['request_type'])
 
         return JsonResponse(data=data, status=status)

@@ -16,7 +16,7 @@ def add_inf(data):
 
         dt['sale_date'] = ' '.join(dt['sale_date'].replace('T', ' ').split(' '))
 
-        dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
+        # dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
 
     return data
 
@@ -36,30 +36,46 @@ def add_inf_buy(data):
     return data
 
 
-def prove_sale_request(sale_request_id):
+def prove_sale_request(sale_request_id, request_status):
 
     try:
 
         sale_gold_obj = SaleGold.objects.get(pk=sale_request_id)
-        sale_gold_obj.request_status = True
-        sale_gold_obj.save()
-
         wallet_obj = check_wallet(sale_gold_obj.user)
-        wallet_obj.gold_stock = wallet_obj.gold_stock - sale_gold_obj.gold_amount
-        wallet_obj.save()
 
-        return {
+        if wallet_obj.gold_stock >= sale_gold_obj.gold_amount:
 
-            'responseEN': 'successfully ...',
-            'responseFA': 'در خواست شما با موفقیت ثبت شد'
+            sale_gold_obj.request_status = request_status
+            sale_gold_obj.save()
 
-        }, 200
+            if request_status == 'تایید درخواست':
+                wallet_obj.gold_stock = wallet_obj.gold_stock - sale_gold_obj.gold_amount
+                wallet_obj.save()
+
+            return {
+
+                'responseEN': 'successfully ...',
+                'responseFA': 'در خواست شما با موفقیت ثبت شد'
+
+            }, 200
+
+        else:
+
+            sale_gold_obj.request_status = 'رد درخواست'
+            sale_gold_obj.save()
+
+            return {
+
+                'responseEN': 'your request gold amount is higher than your wallet gold amount',
+                'responseFA': 'میزان درخواست طلای داده شده توسط مشتری بیشتر از میزان موجودی کاربر میباشد'
+
+            }, 400
 
     except:
 
         return {
 
-            'responseEN': 'successfully ...',
-            'responseFA': 'در خواست شما با موفقیت ثبت شد'
+            'responseEN': 'wrong request id',
+            'responseFA': 'ایدی وارد شده اشتباه میباشد'
 
         }, 400

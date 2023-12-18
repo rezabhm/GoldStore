@@ -12,17 +12,35 @@ def change_gold_price(gold_price):
         dt.active = False
         dt.save()
 
-    gold_obj_new = GoldPrice(
+    if len(gold_obj) > 0:
 
-        Date=timezone.now(),
-        sale_price=gold_price,
-        price_difference=gold_obj[len(gold_obj)-1].price_difference,
-        total_gold_stock=gold_obj[len(gold_obj) - 1].total_gold_stock,
-        stock_status=gold_obj[len(gold_obj) - 1].stock_status,
-        active=True
-    )
+        gold_obj_new = GoldPrice(
 
-    gold_obj_new.save()
+            Date=timezone.now(),
+            sale_price=gold_price,
+            price_difference=gold_obj[len(gold_obj)-1].price_difference,
+            total_gold_stock=gold_obj[len(gold_obj) - 1].total_gold_stock,
+            stock_status=gold_obj[len(gold_obj) - 1].stock_status,
+            active=True
+        )
+
+        gold_obj_new.save()
+
+    else:
+
+        gold_obj = GoldPrice.objects.all().order_by('Date')
+
+        gold_obj_new = GoldPrice(
+
+            Date=timezone.now(),
+            sale_price=gold_price,
+            price_difference=gold_obj[len(gold_obj) - 1].price_difference,
+            total_gold_stock=gold_obj[len(gold_obj) - 1].total_gold_stock,
+            stock_status=gold_obj[len(gold_obj) - 1].stock_status,
+            active=True
+        )
+
+        gold_obj_new.save()
 
     return {
 

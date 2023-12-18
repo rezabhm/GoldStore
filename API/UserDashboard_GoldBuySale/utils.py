@@ -19,7 +19,7 @@ def sale_gold(token_key, gold_amount):
 
             if len(gold_price_obj) > 0:
 
-                gold_price_obj = gold_price_obj[0]
+                gold_price_obj = gold_price_obj[len(gold_price_obj)-1]
 
                 # calculate gold price
                 gold_price = float(gold_amount) * gold_price_obj.sale_price
@@ -74,6 +74,7 @@ def sale_gold(token_key, gold_amount):
 def buy_gold(token_key, gold_amount):
 
     _, user, _ = get_user_from_token(token_key)
+    wallet_obj = check_wallet(user)
 
     gold_price_obj = GoldPrice.objects.filter(active=True).filter(stock_status=True)
 
@@ -85,36 +86,50 @@ def buy_gold(token_key, gold_amount):
 
             gold_price = gold_amount * gold_price_obj.sale_price + gold_price_obj.price_difference
 
-            buy_gold_obj = BuyGold(
+            if gold_price <= wallet_obj.money_stock:
 
-                user=user,
-                buy_date=timezone.now(),
-                money_amount=gold_price,
-                gold_amount=gold_amount,
-                request_status=True,
+                wallet_obj.money_stock = wallet_obj.money_stock - gold_price
+                wallet_obj.save()
 
-            )
+                buy_gold_obj = BuyGold(
 
-            buy_gold_obj.save()
+                    user=user,
+                    buy_date=timezone.now(),
+                    money_amount=gold_price,
+                    gold_amount=gold_amount,
+                    request_status=True,
 
-            buy_gold_obj.gold_price.add(gold_price_obj)
+                )
 
-            buy_gold_obj.save()
+                buy_gold_obj.save()
 
-            wallet_obj = check_wallet(user)
-            wallet_obj.gold_stock = wallet_obj.gold_stock + gold_amount
-            wallet_obj.save()
+                buy_gold_obj.gold_price.add(gold_price_obj)
 
-            gold_price_obj.total_gold_stock = gold_price_obj.total_gold_stock - gold_amount
-            gold_price_obj.save()
+                buy_gold_obj.save()
 
-            return {
+                wallet_obj = check_wallet(user)
+                wallet_obj.gold_stock = wallet_obj.gold_stock + gold_amount
+                wallet_obj.save()
 
-                'responseEN': 'successfully received , after admin approved gold will add to your wallet',
-                'responseFA': 'درخواست شما با موفقیت دیافت شد .'
-                               ' به محض تایید این درخواست توسط ادمین طلای درخواستی به کیف پول شما اضافه میشود'
+                gold_price_obj.total_gold_stock = gold_price_obj.total_gold_stock - gold_amount
+                gold_price_obj.save()
 
-            }, 200
+                return {
+
+                    'responseEN': 'successfully received , after admin approved gold will add to your wallet',
+                    'responseFA': 'درخواست شما با موفقیت دیافت شد .'
+                                   ' به محض تایید این درخواست توسط ادمین طلای درخواستی به کیف پول شما اضافه میشود'
+
+                }, 200
+
+            else:
+
+                return {
+
+                    'responseEN': 'your wallets money is lower than your buying gold price',
+                    'responseFA': 'مقدار پول کیف پول شما کمتر از مبلغ طلای درخواستی شما میباشد'
+
+                }, 400
 
         else:
 
