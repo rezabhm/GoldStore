@@ -31,7 +31,7 @@ class MoneyGetRequestList(APIView):
         all_request_serializer.is_valid()
         all_request_data = add_user_inf(all_request_serializer.data)
 
-        un_accept_request = MoneyGetRequest.objects.filter(request_status=False)
+        un_accept_request = MoneyGetRequest.objects.filter(request_status='waiting')
         un_accept_request_serializer = MoneyGetRequestSerializer(data=un_accept_request, many=True)
         un_accept_request_serializer.is_valid()
         un_accept_request_data = add_user_inf(un_accept_request_serializer.data)
@@ -60,7 +60,7 @@ class ProveMoneyGetRequest(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = prove_money_get_request(get_req_id=req_data['get_request_id'], request_type=['request_type'])
+        data, status = prove_money_get_request(get_req_id=req_data['get_request_id'], request_type=req_data['request_type'])
 
         return JsonResponse(data=data, status=status)
 
@@ -82,7 +82,7 @@ class GoldGetRequestList(APIView):
         all_request_serializer.is_valid()
         all_request_data = add_user_inf(all_request_serializer.data)
 
-        un_accept_request = GoldGetRequest.objects.filter(request_status=False)
+        un_accept_request = GoldGetRequest.objects.filter(request_status='waiting')
         un_accept_request_serializer = GoldGetRequestSerializer(data=un_accept_request, many=True)
         un_accept_request_serializer.is_valid()
         un_accept_request_data = add_user_inf(un_accept_request_serializer.data)
@@ -111,6 +111,6 @@ class ProveGoldGetRequest(GenericAPIView):
     def post(self, request):
 
         req_data = json.loads(request.body)
-        data, status = prove_gold_get_request(get_req_id=req_data['get_request_id'], request_type=['request_type'])
+        data, status = prove_gold_get_request(get_req_id=req_data['get_request_id'], request_type=req_data['request_type'])
 
         return JsonResponse(data=data, status=status)

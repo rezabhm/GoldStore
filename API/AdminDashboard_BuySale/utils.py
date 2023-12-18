@@ -16,7 +16,14 @@ def add_inf(data):
 
         dt['sale_date'] = ' '.join(dt['sale_date'].replace('T', ' ').split(' '))
 
-        # dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
+        if dt['request_status'] == 'accept':
+            dt['request_status'] = 'تایید درخواست'
+
+        elif dt['request_status'] == 'waiting':
+            dt['request_status'] = 'در انتظار بررسی'
+
+        else:
+            dt['request_status'] = 'رد درخواست'
 
     return data
 

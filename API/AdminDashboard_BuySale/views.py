@@ -31,7 +31,7 @@ class SaleList(APIView):
         all_sale_gold_serializer.is_valid()
         all_sale_gold_list = add_inf(all_sale_gold_serializer.data)
 
-        unacceptable_sale_gold_list = SaleGold.objects.filter(request_status=False)
+        unacceptable_sale_gold_list = SaleGold.objects.filter(request_status='waiting')
         unacceptable_sale_gold_serializer = SaleGoldSerializer(data=unacceptable_sale_gold_list, many=True)
         unacceptable_sale_gold_serializer.is_valid()
         unacceptable_sale_gold_list = add_inf(unacceptable_sale_gold_serializer.data)

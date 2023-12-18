@@ -50,9 +50,9 @@ class SaleGoldReport(GenericAPIView):
         sale_gold_report_list = SaleGold.objects.filter(user=user)
         sale_gold_report_serializer = SaleReportingSerializer(data=sale_gold_report_list, many=True)
         sale_gold_report_serializer.is_valid()
-        # data = change_status(sale_gold_report_serializer.data)
+        data = change_status(sale_gold_report_serializer.data)
 
-        return JsonResponse(data={"data": sale_gold_report_serializer.data}, status=200)
+        return JsonResponse(data={"data": data}, status=200)
 
 
 class GetGoldRequestReport(GenericAPIView):
@@ -72,9 +72,9 @@ class GetGoldRequestReport(GenericAPIView):
         gold_get_request_report_serializer = GoldGetRequestReportingSerializer(data=gold_get_request_report_list,
                                                                                many=True)
         gold_get_request_report_serializer.is_valid()
-        # data = change_status(gold_get_request_report_serializer.data)
+        data = change_status(gold_get_request_report_serializer.data)
 
-        return JsonResponse(data={"data": gold_get_request_report_serializer.data}, status=200)
+        return JsonResponse(data={"data": data}, status=200)
 
 
 class GetMoneyRequestReport(GenericAPIView):
@@ -94,9 +94,9 @@ class GetMoneyRequestReport(GenericAPIView):
         money_get_request_report_serializer = MoneyGetRequestReportingSerializer(data=money_get_request_report_list,
                                                                                  many=True)
         money_get_request_report_serializer.is_valid()
-        # data = change_status(money_get_request_report_serializer.data)
+        data = change_status(money_get_request_report_serializer.data)
 
-        return JsonResponse(data={"data": money_get_request_report_serializer.data}, status=200)
+        return JsonResponse(data={"data": data}, status=200)
 
 
 class TransactionReport(GenericAPIView):

@@ -13,11 +13,11 @@ class SaleGold(models.Model):
     gold_price = models.ManyToManyField(GoldPrice)
     request_status = models.CharField(max_length=20, choices=(
 
-        ('تایید درخواست','تایید درخواست'),
-        ('در انتظار بررسی', 'در انتظار بررسی'),
-        ('رد درخواست', 'رد درخواست'),
+        ('accept','accept'),
+        ('waiting', 'waiting'),
+        ('reject', 'reject'),
 
-    ), default='در انتظار بررسی')
+    ), default='waiting')
 
     def __str__(self):
         return str(self.pk)

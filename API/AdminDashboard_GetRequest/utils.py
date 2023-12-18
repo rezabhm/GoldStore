@@ -7,7 +7,6 @@ from LIB.utils import check_wallet
 def add_user_inf(data):
 
     for dt in data:
-
         user_obj = User.objects.get(pk=dt['user'])
 
         dt['first_name'] = user_obj.first_name
@@ -15,7 +14,14 @@ def add_user_inf(data):
         dt['phone_number'] = user_obj.username
 
         dt['request_date'] = ' '.join(dt['request_date'].replace('T', ' ').split(' '))
-        # dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
+        if dt['request_status'] == 'accept':
+            dt['request_status'] = 'تایید درخواست'
+
+        elif dt['request_status'] == 'waiting':
+            dt['request_status'] = 'در انتظار بررسی'
+
+        else:
+            dt['request_status'] = 'رد درخواست'
 
     return data
 
@@ -32,7 +38,7 @@ def prove_money_get_request(get_req_id, request_type):
             get_request_obj.request_status = request_type
             get_request_obj.save()
 
-            if request_type == 'تایید درخواست':
+            if request_type == 'accept':
 
                 wallet_obj.money_stock = wallet_obj.money_stock - get_request_obj.money_amount
                 wallet_obj.save()
@@ -46,7 +52,7 @@ def prove_money_get_request(get_req_id, request_type):
 
         else:
 
-            get_request_obj.request_status = 'رد درخواست'
+            get_request_obj.request_status = 'reject'
             get_request_obj.save()
 
             return {
@@ -78,7 +84,7 @@ def prove_gold_get_request(get_req_id, request_type):
             get_request_obj.request_status = request_type
             get_request_obj.save()
 
-            if request_type == 'تایید درخواست':
+            if request_type == 'accept':
 
                 wallet_obj.gold_stock = wallet_obj.gold_stock - get_request_obj.gold_amount
                 wallet_obj.save()
@@ -92,7 +98,7 @@ def prove_gold_get_request(get_req_id, request_type):
 
         else:
 
-            get_request_obj.request_status = 'رد درخواست'
+            get_request_obj.request_status = 'reject'
             get_request_obj.save()
 
             return {

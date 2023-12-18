@@ -9,11 +9,11 @@ class MoneyGetRequest(models.Model):
     money_amount = models.FloatField(default=0.0)
     request_status = models.CharField(max_length=20, choices=(
 
-        ('تایید درخواست','تایید درخواست'),
-        ('در انتظار بررسی', 'در انتظار بررسی'),
-        ('رد درخواست', 'رد درخواست'),
+        ('accept','accept'),
+        ('waiting', 'waiting'),
+        ('reject', 'reject'),
 
-    ))
+    ), default='waiting')
 
     def __str__(self):
         return str(self.pk)
@@ -26,11 +26,11 @@ class GoldGetRequest(models.Model):
     gold_amount = models.FloatField(default=0.0)
     request_status = models.CharField(max_length=20, choices=(
 
-        ('تایید درخواست','تایید درخواست'),
-        ('در انتظار بررسی', 'در انتظار بررسی'),
-        ('رد درخواست', 'رد درخواست'),
+        ('accept','accept'),
+        ('waiting', 'waiting'),
+        ('reject', 'reject'),
 
-    ))
+    ), default='waiting')
 
     def __str__(self):
         return str(self.pk)
