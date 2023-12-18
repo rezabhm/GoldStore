@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 
 from Core.models.request import MoneyGetRequest, GoldGetRequest
-from LIB.utils import check_wallet
+from LIB.utils import check_wallet, cvt_date
 
 
 def add_user_inf(data):
@@ -13,7 +13,7 @@ def add_user_inf(data):
         dt['last_name'] = user_obj.last_name
         dt['phone_number'] = user_obj.username
 
-        dt['request_date'] = ' '.join(dt['request_date'].replace('T', ' ').split(' '))
+        dt['request_date'] = cvt_date(dt['request_date'])
         if dt['request_status'] == 'accept':
             dt['request_status'] = 'تایید درخواست'
 

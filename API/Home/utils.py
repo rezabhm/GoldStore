@@ -11,7 +11,8 @@ def get_gold_stock_price():
 
     try:
 
-        gold_price_obj = GoldPrice.objects.filter(active=True).order_by('Date')[0]
+        gold_price_obj = GoldPrice.objects.all().order_by('Date')
+        gold_price_obj = gold_price_obj[len(gold_price_obj)-1]
 
     except:
 

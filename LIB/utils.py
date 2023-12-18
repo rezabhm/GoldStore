@@ -39,3 +39,9 @@ def check_wallet(user):
         wallet_obj.save()
 
     return wallet_obj
+
+
+def cvt_date(x):
+
+    return ' '.join(':'.join('T'.join(x.replace('T', ' ').split(' ')).split(':')[:2]).replace('T', ' ').split(
+        ' ')).replace('-', '/')

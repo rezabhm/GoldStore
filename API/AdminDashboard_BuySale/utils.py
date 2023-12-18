@@ -1,7 +1,9 @@
+import re
+
 from django.contrib.auth.models import User
 
 from Core.models.stock import SaleGold
-from LIB.utils import check_wallet
+from LIB.utils import check_wallet, cvt_date
 
 
 def add_inf(data):
@@ -14,7 +16,7 @@ def add_inf(data):
         dt['last_name'] = user_obj.last_name
         dt['phone_number'] = user_obj.username
 
-        dt['sale_date'] = ' '.join(dt['sale_date'].replace('T', ' ').split(' '))
+        dt['sale_date'] = cvt_date(dt['sale_date'])
 
         if dt['request_status'] == 'accept':
             dt['request_status'] = 'تایید درخواست'
@@ -36,7 +38,7 @@ def add_inf_buy(data):
         dt['last_name'] = user_obj.last_name
         dt['phone_number'] = user_obj.username
 
-        dt['buy_date'] = ' '.join(dt['buy_date'].replace('T', ' ').split(' '))
+        dt['buy_date'] = cvt_date(dt['buy_date'])
 
         dt['request_status'] = 'تایید شده' if dt['request_status'] else 'در انتظار تایید'
 
@@ -55,8 +57,9 @@ def prove_sale_request(sale_request_id, request_status):
             sale_gold_obj.request_status = request_status
             sale_gold_obj.save()
 
-            if request_status == 'تایید درخواست':
+            if request_status == 'accept':
                 wallet_obj.gold_stock = wallet_obj.gold_stock - sale_gold_obj.gold_amount
+                wallet_obj.money_stock = wallet_obj.money_stock + sale_gold_obj.money_amount
                 wallet_obj.save()
 
             return {
@@ -68,7 +71,7 @@ def prove_sale_request(sale_request_id, request_status):
 
         else:
 
-            sale_gold_obj.request_status = 'رد درخواست'
+            sale_gold_obj.request_status = 'reject'
             sale_gold_obj.save()
 
             return {

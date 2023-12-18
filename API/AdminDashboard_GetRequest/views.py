@@ -26,12 +26,12 @@ class MoneyGetRequestList(APIView):
 
     def get(self, request):
 
-        all_request = MoneyGetRequest.objects.all()
+        all_request = MoneyGetRequest.objects.all().order_by('request_date').reverse()
         all_request_serializer = MoneyGetRequestSerializer(data=all_request, many=True)
         all_request_serializer.is_valid()
         all_request_data = add_user_inf(all_request_serializer.data)
 
-        un_accept_request = MoneyGetRequest.objects.filter(request_status='waiting')
+        un_accept_request = MoneyGetRequest.objects.filter(request_status='waiting').order_by('request_date').reverse()
         un_accept_request_serializer = MoneyGetRequestSerializer(data=un_accept_request, many=True)
         un_accept_request_serializer.is_valid()
         un_accept_request_data = add_user_inf(un_accept_request_serializer.data)
@@ -77,12 +77,12 @@ class GoldGetRequestList(APIView):
     allowed_methods = ('GET',)
 
     def get(self, request):
-        all_request = GoldGetRequest.objects.all()
+        all_request = GoldGetRequest.objects.all().order_by('request_date').reverse()
         all_request_serializer = GoldGetRequestSerializer(data=all_request, many=True)
         all_request_serializer.is_valid()
         all_request_data = add_user_inf(all_request_serializer.data)
 
-        un_accept_request = GoldGetRequest.objects.filter(request_status='waiting')
+        un_accept_request = GoldGetRequest.objects.filter(request_status='waiting').order_by('request_date').reverse()
         un_accept_request_serializer = GoldGetRequestSerializer(data=un_accept_request, many=True)
         un_accept_request_serializer.is_valid()
         un_accept_request_data = add_user_inf(un_accept_request_serializer.data)

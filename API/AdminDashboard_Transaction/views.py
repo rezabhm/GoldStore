@@ -22,7 +22,7 @@ class TransactionList(APIView):
 
     def get(self, request):
 
-        transaction_list = PaymentTransactions.objects.all()
+        transaction_list = PaymentTransactions.objects.all().order_by('payment_date').reverse()
         transaction_list_serializer = TransactionSerializer(data=transaction_list, many=True)
         transaction_list_serializer.is_valid()
 

@@ -26,12 +26,12 @@ class SaleList(APIView):
 
     def get(self, request):
 
-        all_sale_gold_list = SaleGold.objects.all()
+        all_sale_gold_list = SaleGold.objects.all().order_by('sale_date').reverse()
         all_sale_gold_serializer = SaleGoldSerializer(data=all_sale_gold_list, many=True)
         all_sale_gold_serializer.is_valid()
         all_sale_gold_list = add_inf(all_sale_gold_serializer.data)
 
-        unacceptable_sale_gold_list = SaleGold.objects.filter(request_status='waiting')
+        unacceptable_sale_gold_list = SaleGold.objects.filter(request_status='waiting').order_by('sale_date').reverse()
         unacceptable_sale_gold_serializer = SaleGoldSerializer(data=unacceptable_sale_gold_list, many=True)
         unacceptable_sale_gold_serializer.is_valid()
         unacceptable_sale_gold_list = add_inf(unacceptable_sale_gold_serializer.data)
@@ -59,7 +59,7 @@ class BuyList(APIView):
 
     def get(self, request):
 
-        all_buy_gold_list = BuyGold.objects.all()
+        all_buy_gold_list = BuyGold.objects.all().order_by('buy_date').reverse()
         all_buy_gold_serializer = BuyGoldSerializer(data=all_buy_gold_list, many=True)
         all_buy_gold_serializer.is_valid()
         all_buy_gold_list = add_inf_buy(all_buy_gold_serializer.data)
